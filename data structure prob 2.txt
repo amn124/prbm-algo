@@ -1,0 +1,31 @@
+Algorithm: Dot Product and Orthogonality Check
+
+Procedure dot_product(vector1: array of real, vector2: array of real) -> real
+    Declare ps as real
+    Initialize ps to 0
+    For i from 0 to length(vector1) - 1
+        Add vector1[i] * vector2[i] to ps
+    End For
+    Return ps
+End Procedure
+
+Procedure check_orthogonality(vectors: array of array of real)
+    For i from 0 to length(vectors) - 1
+        For j from i + 1 to length(vectors) - 1
+            Declare result as real
+            Call dot_product with parameters vectors[i] and vectors[j], and store the result in result
+            If result equals 0
+                Output "Vectors ", i+1, " and ", j+1, " are orthogonal."
+            Else
+                Output "Vectors ", i+1, " and ", j+1, " are not orthogonal."
+            End If
+        End For
+    End For
+End Procedure
+
+// Example usage:
+Declare vectors as array of array of real
+Set vectors to [[1, 0, 0], [0, 1, 0], [0, 0, 1], [2, -2, 0]]
+
+Call check_orthogonality with parameter vectors
+
